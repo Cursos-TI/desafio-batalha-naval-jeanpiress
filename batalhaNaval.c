@@ -4,6 +4,31 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
 // Siga os comentários para implementar cada parte do desafio.
 
+#define TAMANHO 10
+
+void exibirTabuleiro(int tabuleiro[TAMANHO][TAMANHO]) {
+    for (int i = 0; i < TAMANHO; i++) {
+        for (int j = 0; j < TAMANHO; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void aplicarHabilidadeCruz(int tabuleiro[TAMANHO][TAMANHO]) {
+    int x = 0;
+    int y = 3;
+    
+    for (int i = 0; i < TAMANHO; i++) {
+        if(x < 5){
+            tabuleiro[x][5] = 3;
+            tabuleiro[2][y] = 3;
+            x++;
+            y++;
+        }
+    }
+}
+
 int main() {
     // Nível Novato - Posicionamento dos Navios
     // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
@@ -14,7 +39,23 @@ int main() {
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
     // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
     // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+    int linha = 10;
+    int coluna = 10;
+    int linhaCruz = 0;
+    int colunaCruz = 1;
 
+    int matriz[linha][coluna];
+
+    for(int i = 0; i < linha; i++){
+        for(int j = 0; j < coluna; j++){
+            matriz[i][j] = 0;
+        }
+    }
+
+    int tabuleiro[TAMANHO][TAMANHO] = {0};
+    aplicarHabilidadeCruz(tabuleiro);
+    
+    exibirTabuleiro(tabuleiro);
     // Nível Mestre - Habilidades Especiais com Matrizes
     // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
     // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
